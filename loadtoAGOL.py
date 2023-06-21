@@ -72,16 +72,12 @@ def TruncateWebLayer(gis, target):
         e = sys.exc_info()[1]
         print(e.args[0])
 
-#try:
 
 # LAPD log in, create a profile so you don't need to show un/pw
 mygis = GIS("https://lapd.maps.arcgis.com/", profile="python_playground_prof")
-#mygis = GIS("https://lapd.maps.arcgis.com/", client_id='3uVopa3aWCKGsDwf')
-
 
 # publishedWebLayer is the URL of a single feature layer within a collection in
 # an AGOL portal
-#publishedWebLayer = mygis.content.get("28c41e431bee478793c94dcb865cd40e")
 publishedWebLayer = "https://services6.arcgis.com/Q18o8KwHjFGbEc4j/arcgis/rest/services/ARL_data/FeatureServer/0"
 
 # a feature class on the local system with the same schema as the
@@ -102,8 +98,6 @@ fl = arcgis.features.FeatureLayer(publishedWebLayer, mygis)
 
 # create a JSON object from the local features
 jSON = arcpy.FeaturesToJSON_conversion(updateFeatures, localJSON)
-
-
     
 # create a FeatureSet object from the JSON
 
